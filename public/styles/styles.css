@@ -1,0 +1,558 @@
+/* Reset default styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+    /* background-image: linear-gradient(to top, #30cfd0 0%, #531d96 100%); */
+    
+    /* background-image: linear-gradient(to top, #30cfd0 0%, #2d107e 100%); */
+}
+
+/* Header Styles */
+header {
+    background-color: #18191a;
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+    
+}
+.logo {
+    font-weight: bold; /* Make the text bold */
+    font-size: 24px; /* Adjust the font size */
+    color: white; /* Text color for the logo */
+    margin-right: 10px; /* Adjust the spacing between the text and the list items */
+}
+
+/* -----------Search Bar-------- */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+  }
+  
+  .search-bar {
+    display: flex;
+    align-items: center;
+    background-color: #f2f2f2;
+    background-color: rgba(250, 250, 250, 0.347);
+    border-radius: 25px; /* Adjust the border-radius for rounded corners */
+    padding: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Optional: Add a box shadow for a smooth look */
+  }
+  
+  form {
+    display: flex;
+    align-items: center;
+  }
+  
+  input[type="text"] {
+    border: none;
+    outline: none;
+    padding: 10px;
+    border-radius: 25px; /* Adjust the border-radius for rounded corners */
+    width: 600px;
+  }
+  
+  .search-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 25px; /* Adjust the border-radius for rounded corners */
+    padding: 10px 15px;
+    margin-left: 10px; /* Add some spacing between input and button */
+    cursor: pointer;
+  }
+  
+  /* Optional: Add hover effect for the button */
+  .search-button:hover {
+    background-color: #0056b3;
+  }
+  
+
+
+/* Main Section Styles */
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+}
+
+/* Main Big Weather Card Styles */
+.weather-card {
+    background-color: #f5f5f5;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    margin-bottom: 30px;
+    margin-top: 20px;
+    width: 700px;
+    /* background: url("https://coolbackgrounds.io/images/backgrounds/index/ranger-4df6c1b6.png");
+    background: url('https://img.freepik.com/free-vector/flat-design-polygonal-background_23-2148906132.jpg?t=st=1698040762~exp=1698041362~hmac=d4d80b4779225a3830c587cfe476e333e5692d58d30a185c4009ac1cf03698fa'); */
+    background: url('/images/maincardbg.jpg');
+    background-size: cover; /*to cover the entire img to card so that it wont crop*/
+}
+
+.weather-card h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.weather-card img {
+    width: 50px;
+    height: 50px;
+}
+
+/* --------------Weather Details Card Styles------------- */
+.weather-details {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 50px;
+}
+
+.detail-card {
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 130px;
+    background-color: rgba(250, 250, 250, 0.347);
+}
+
+.detail-card img {
+    width: 50px;
+    height: 50px;
+}
+.detail-card p{
+    font-size: 14px; /* Adjust the font size for lower text */
+    font-weight: bold;
+    color: #333;
+}
+
+/* Weather Info Styles */
+.weather-card .weather-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.weather-card .weather-info img {
+    width: 100px;
+    margin-right: 10px;
+    height: 100px;
+}
+
+.weather-card .weather-info h2 {
+    font-size: 50px;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    margin: 0;
+}
+
+
+.conditiontext{
+    margin: 0px;
+    font-family: "Arial", sans-serif;
+    font-size: 20px;
+    line-height: 1.5;
+    color: #333;
+    font-weight: bold;
+    padding-right: 100px;
+    /* padding-top: 8px;
+    padding-left: 5px; */
+}
+.feelslike{
+    font-size: 1.2em;
+    margin: 5px 0;
+    font-family: "Arial", sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #333;
+    font-weight: bold;
+    padding-top: 8px;
+    padding-left: 10px;
+}
+/* --------------Forecast Section Styles------------- */
+.forecast-section {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.forecast-day {
+    flex: 1;
+    border-right: 1px solid #ccc;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.forecast-day:last-child {
+    border-right: none;
+}
+
+.forecast-day:hover {
+    background-color: #f0f0f0;
+}
+
+.forecast-day h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.forecast-day img {
+    width: 60px;
+    height: 60px;
+    margin: 10px 0;
+}
+
+.forecast-day p {
+    font-size: 1.2em;
+    margin: 5px 0;
+    font-family: "Arial", sans-serif;
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 1.5;
+    color: #333;
+    font-weight: bold;
+}
+
+/* Additional Data Table Styles */
+.additional-data {
+    width: 850px;
+    margin-top: 30px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.additional-data td {
+    padding: 10px;
+    text-align: left;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Hourly Card */
+.container1 {
+    width: 700px;
+    margin: 0 auto;
+    border: 2px solid #ccc;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Weather box styles */
+.weather-box {
+    text-align: center;
+    padding: 10px; /* Add padding to create space within each box */
+    width: calc(16.666% - 10px); /* Calculate the width for each box with spacing in between */
+    border-right: 1px solid #ccc; /* Add a right border to create lines between boxes */
+}
+
+.weather-box:last-child {
+    border-right: none; /* Remove the right border from the last box */
+}
+.weather-box:hover {
+    background-color: #f0f0f0;
+}
+.weather-box p {
+    font-size: 16px;
+    margin: 5px 0;
+
+}
+/* Upper text styling */
+.upper-text {
+    font-size: 16px; /* Adjust the font size for upper text */
+    font-weight: bold; /* Make the upper text bold */
+    color:black; /* Text color for upper text */
+}
+
+/* Lower text styling */
+.lower-text {
+    font-size: 14px; /* Adjust the font size for lower text */
+    font-weight: bold;
+    color: #333; /* Text color for lower text */
+}
+
+.weather-box img {
+    width: 50px;
+    height: 50px;
+    margin-top: 10px;
+}
+
+/* Sunrise and Sunset Cards */
+.sun-cards {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+    gap: 30px;
+}
+
+.sun-card {
+    flex: 1;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 10px; /* Add border-radius for rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    transition: background-color 0.2s ease-in-out;
+    background-color: rgba(250, 250, 250, 0.347);
+}
+
+.sun-card:last-child {
+    border: none;
+}
+
+.sun-card img {
+    width: 40px;
+    height: 40px;
+}
+
+.sun-card h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.sun-card p {
+    font-size: 1.2em;
+    margin: 5px 0;
+    font-family: "Arial", sans-serif;
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 1.5;
+    color: #333;
+    font-weight: bold;
+}
+
+/* Footer CSS */
+.footer {
+    background: #222;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer p {
+    margin: 10px;
+}
+
+.footer a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+.footer .social-icons {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.footer .social-icons a {
+    font-size: 24px;
+    margin: 0 10px;
+    color: #3498db;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.footer .social-icons a:hover {
+    transform: scale(1.2);
+    color: #e74c3c;
+}
+
+
+@media (max-width: 768px) {
+    header {
+        padding: 10px;
+    }
+
+    .logo {
+        font-size: 18px; 
+    }
+
+   
+    .search-bar {
+        padding: 5px; 
+    }
+
+    input[type="text"] {
+        width: 100%; 
+    }
+
+    .search-button {
+        margin-left: 5px; 
+    }
+
+    
+    .weather-card {
+        width: 100%; 
+        max-width: 100%;
+        padding: 10px; 
+    }
+
+    .weather-card .weather-info h2 {
+        font-size: 33px;
+    }
+
+
+    .weather-card img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .conditiontext {
+        font-size: 14px; 
+        padding: 0; 
+    }
+
+    .feelslike {
+        font-size: 12px; 
+        padding: 0; 
+    }
+    .forecast-day {
+        flex: 1; 
+        border-bottom: none; 
+        border-right: 1px solid #ccc; 
+        padding: 3px; 
+    }
+
+    
+    .container1 {
+        width: 100%; 
+        display: flex; 
+        flex-wrap: nowrap; 
+        overflow-x: auto; 
+    }
+
+    .weather-box {
+        flex: 1;
+        border-right: none;
+        border-bottom: 1px solid #ccc; 
+        padding: 15px; 
+    }
+
+    .sun-cards {
+        gap: 15px; 
+        margin-top: 30px;
+    }
+
+    
+    .weather-card h1 {
+        font-size: 18px; 
+        white-space: nowrap; 
+        overflow: hidden; /*this wil Hide overflowing text */
+        text-overflow: ellipsis;
+    }
+
+    .weather-details {
+        padding: 10px; 
+        width: 100%; 
+        max-width: 100%; 
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /* this will display three cards in one row */
+        gap: 10px;
+        margin-top: 20px;
+    }
+
+    .detail-card {
+        text-align: center;
+        border: 1px solid #ccc; 
+        padding: 10px;
+        border-radius: 10px; 
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transition: background-color 0.2s ease-in-out;
+        background-color: rgba(250, 250, 250, 0.347);
+        height: 70px; 
+        width: 70px;
+    }
+
+    .detail-card img {
+        width: 30px; 
+        height: 30px;
+    }
+
+    .detail-card p {
+        font-size: 10px; 
+        margin: 5px 0;
+    }
+    .weather-details:nth-child(n+4) {
+        grid-template-columns: repeat(3, 1fr); /* Display two cards in one row for the second row */
+    }
+    
+    .container1 {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: auto; /* this will allow horizontal scrolling for smaller screens */
+        padding: 3px;
+    }
+
+    .weather-box {
+        flex: 1;
+        border-bottom: none;
+        border-right: 1px solid #ccc;
+        padding: 5px; 
+        text-align: center;
+    }
+    .weather-box:last-child {
+        border-right: none; 
+    }
+
+    .weather-box img {
+        width: 30px; 
+        height: 30px;
+        margin-top: 5px;
+    }
+
+    .weather-box p {
+        font-size: 10px; 
+        margin: 3px 0; 
+    }
+
+    
+    .upper-text {
+        font-size: 14px; 
+        font-weight: bold; 
+        color: black;
+    }
+    .lower-text {
+        font-size: 12px; 
+        font-weight: bold;
+        color: #333; 
+    }
+    .additional-data {
+        width: 100%; 
+        max-width: 100%; 
+        overflow-x: auto; 
+        margin-top: 20px;
+    }
+
+    .additional-data td {
+        font-size: 12px;
+}
+}

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Today</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"> 
+
+    <link rel="stylesheet" href="/styles/styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li class="logo">
+                    <i class="fas fa-cloud-sun text-warning"></i>Weather Today
+                </li>
+                
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Search bar -->
+    <div class="container">
+        <div class="search-bar">
+            <form action="/search" method="POST">
+                <input type="text" name="query" placeholder="Enter location">
+                <button class="search-button" type="submit"><i class="fa fa-search"></i></button>
+            </form>
+        </div>
+    </div> 
+
+      
+    
+<!-- Main Weather Card -->
+        <div class="weather-card">
+            <h1><i class="fas fa-map-marker-alt"></i> <%= content.location.name %>, <%= content.location.region %>, <%= content.location.country %></h1>
+            <div class="weather-info"> <!-- Using a container for icon and temperature -->
+                <img src="<%= content.current.condition.icon %>" alt="Weather Icon">
+                <h2 ><%= content.current.temp_c %> °C </h2> <p class="feelslike"> Feels like: <%= content.current.feelslike_c %> °C </p>
+            </div>
+            <p class="conditiontext"><%= content.current.condition.text %></p>
+        </div>
+
+<!-- Hourly Weather Info -->
+<div class="container1">
+    <% nextSixHoursData.forEach((hourData, index) => { %>
+    <div class="weather-box">
+        <p class="upper-text"><%= hourData.time %></p>
+        <img src="<%= hourData.condition.icon %>" alt="Weather Icon">
+        <p class="lower-text"><%= hourData.condition.text %></p>
+    </div>
+    <% }); %>
+
+    <!-- Display tomorrow's data only if there's not enough data for today -->
+    <% if (nextSixHoursData.length < 6) { %>
+        <% nextDayData.forEach((hourData, index) => { %>
+        <div class="weather-box">
+            <p class="upper-text"><%= hourData.time %></p>
+            <img src="<%= hourData.condition.icon %>" alt="Weather Icon">
+            <p class="lower-text"><%= hourData.condition.text %></p>
+        </div>
+        <% }); %>
+    <% } %>
+</div>
+
+<!-- Detail Cards -->
+<div class="weather-details">
+            
+    <div class="detail-card">
+        <img src="/images/rain-icon.gif" alt="Humidity Icon">
+        <p>Chance of Rain: <%= content.forecast.forecastday[2].day.daily_chance_of_rain %>%</p>
+    </div>
+    <div class="detail-card">
+        <img src="/images/airq.gif" alt="Humidity Icon">
+        <p>Air Quality: <%= airQualityMessage  %> </p>
+    </div>
+    <div class="detail-card">
+        <img src="/images/humidity-icon.gif" alt="Wind Icon">
+        <p>Humidity: <%= content.current.humidity %>% </p>
+    </div>
+    <div class="detail-card">
+        <img src="/images/wind-icon.gif" alt="Wind Icon">
+        <p>Wind: <%= content.current.wind_kph %> Kmph</p>
+    </div>
+    <div class="detail-card">
+        <img src="/images/precipitation-icon.gif" alt="Rain Icon">
+        <p>Precipitation: <%= content.forecast.forecastday[0].day.maxtemp_c %>mm</p>
+    </div>
+    <div class="detail-card">
+        <img src="/images/uv-icon.gif" alt="Uv Icon">
+        <p>UV Index: <%= content.current.uv%> </p>
+    </div>
+    
+
+</div>
+
+
+        </div>
+        <!-- Forcast Section -->
+        <div class="forecast-section">
+            <div class="forecast-day">
+                <h3>Today</h3>
+                <img src="<%= content.forecast.forecastday[0].day.condition.icon %>" alt="Forecast Icon">
+                <p><%= content.forecast.forecastday[0].day.condition.text  %></p>
+                <p>Max:<%= content.forecast.forecastday[0].day.maxtemp_c %>°C</p>
+                <p>Min: <%= content.forecast.forecastday[0].day.mintemp_c %>°C</p>
+            </div>
+            <div class="forecast-day">
+                <h3>Tommorrow</h3>
+                <img src="<%= content.forecast.forecastday[1].day.condition.icon %>" alt="Forecast Icon">
+                <p><%= content.forecast.forecastday[1].day.condition.text  %></p>
+                <p>Max:<%= content.forecast.forecastday[1].day.maxtemp_c %>°C</p>
+                <p>Min: <%= content.forecast.forecastday[1].day.mintemp_c %>°C</p>
+            </div>
+            <div class="forecast-day">
+                <h3>DayAfter</h3>
+                <img src="<%= content.forecast.forecastday[2].day.condition.icon %>" alt="Forecast Icon">
+                <p><%= content.forecast.forecastday[2].day.condition.text  %></p>
+                <p>Max:<%= content.forecast.forecastday[2].day.maxtemp_c %>°C</p>
+                <p>Min: <%= content.forecast.forecastday[2].day.mintemp_c %>°C</p>
+            </div>
+            <!-- <div class="forecast-day">
+                <h3>Day 4</h3>
+                <img src="forecast-icon-4.png" alt="Forecast Icon">
+                <p>High: 26°C</p>
+                <p>Low: 17°C</p>
+            </div> -->
+        </div>
+        
+        <!-- Sunrise and Sunset Cards -->
+<div class="sun-cards">
+    <div class="sun-card">
+        <h3>Sunrise</h3>
+        <img src="images/sunrise-icon.gif" alt="Sunrise Icon">
+        <p>Sunrise Time: <%= content.forecast.forecastday[0].astro.sunrise %></p>
+    </div>
+    <div class="sun-card">
+        <h3>Sunset</h3>
+        <img src="images/sunset-icon.gif" alt="Sunset Icon">
+        <p>Sunset Time: <%= content.forecast.forecastday[0].astro.sunset %></p>
+    </div>
+</div>
+
+  
+        <!-- Some more Data -->
+        <table class="additional-data">
+        <tbody>
+            <tr>
+                <td>UV Index</td>
+                <td><%= content.current.uv %></td>
+            </tr>
+            <tr>
+                <td>Wind</td>
+                <td><%= content.current.wind_kph %> Kmph <%= content.current.wind_dir %></td>
+            </tr>
+            <tr>
+                <td>Visibility</td>
+                <td><%= content.current.vis_km %> Km</td>
+            </tr>
+            <tr>
+                <td>Pressure</td>
+                <td><%= content.current.pressure_mb %> mb</td>
+            </tr>
+            <tr>
+                <td>Cloud Cover</td>
+                <td><%= content.current.cloud  %> %</td>
+            </tr>
+            <tr>
+                <td>Localtime</td>
+                <td><%= content.location.localtime  %></td>
+            </tr>
+            
+            <tr>
+                <td>Lattitude</td>
+                <td><%= content.location.lat  %>° </td>
+            </tr>
+            <tr>
+                <td>Longitude</td>
+                <td><%= content.location.lon  %>° </td>
+            </tr>
+        
+        </tbody>
+        </table>
+        
+        
+        
+    </main>
+    <footer class="footer">
+        <p>&copy; 2023 Weather Today</p>
+        <p>Made by Srijan Pathak</p>
+        <div class="social-icons">
+            <a href="https://www.linkedin.com/in/srijan-pathak-346981252"><i class="fab fa-linkedin"></i></a> <!-- LinkedIn Icon -->
+            <a href="https://github.com/Srijan-Pathak"><i class="fab fa-github"></i></a>   <!-- GitHub Icon -->
+            <a href="mailto:shivam2003pathak@gmail.com">
+                <i class="far fa-envelope"></i> <!-- Gmail Icon -->
+            </a>
+        </div>
+        <p><a href="#who reads that anyway">Privacy Policy</a> | <a href="#hehe">Terms of Service</a></p>
+    </footer>
+</body>
+</html>

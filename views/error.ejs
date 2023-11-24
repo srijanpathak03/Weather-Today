@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale: 1.0">
+    <title>Error Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background:url('https://img.freepik.com/free-photo/black-brick-wall-textured-background_53876-63572.jpg?w=740&t=st=1697888323~exp=1697888923~hmac=30d8fadd2e0b549220b635635d985c1610c6e503818c04fd3c395241c92ed52b');
+             
+            background: url('/images/errbg.jpg'); 
+        background-size: cover; 
+        background-position: center; 
+            
+        }
+
+        .error-container {
+            text-align: center;
+            padding: 40px; 
+            border-radius: 10px;
+            background: #fff; 
+            background-image: linear-gradient(-20deg, #616161 0%, #9bc5c3 100%);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border: 2px solid;
+        }
+
+        h1 {
+            color:rgb(27, 25, 25);
+            font-size: 39px; 
+            margin: 20px 0; 
+        }
+
+        p {
+            font-size: 24px; 
+            color: #333;
+        }
+
+        .return-container {
+            margin-top: 20px; 
+        }
+
+        .return-link {
+            display: inline-block;
+            padding: 10px 20px; 
+            border: 2px solid #00CC00; 
+            border-radius: 20px; 
+            background: #00CC00; 
+            text-decoration: none;
+            color: #fff; 
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .return-link .icon {
+            margin-right: 10px;
+        }
+
+        .error-emoji {
+            font-size: 48px; 
+        }
+    </style>
+</head>
+<body>
+    <div class="error-container">
+        <span class="error-emoji" role="img" aria-label="Error Emoji">😓 Opps!</span>
+        <h1>We've Encountered an Error</h1>
+        <p><%= errorMessage %></p>
+        <div class="return-container">
+            <a class="return-link" onclick="goBack()">
+                <i class="icon fas fa-arrow-circle-left fa-lg"></i>
+                Return to Previous Page
+            </a>
+        </div>
+    </div>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</body>
+</html>
