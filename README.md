@@ -27,7 +27,7 @@ You can view the live version of the project here: [https://weather-today-tzxc.o
 ## Technologies Used
 
 - **HTML:** For creating the structure of the web pages.
-- **CSS:** For styling and layout, ensuring a responsive design.
+- **CSS:** For styling and layout, ensuring a responsive design..
 - **JavaScript:** For handling dynamic weather data and user interactions.
 
 ## ⭐️ If you like this project or find it useful, please consider giving it a star!
